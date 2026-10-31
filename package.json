@@ -1,0 +1,19 @@
+{
+  "name": "railgaadi-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n \"API,WEB\" -c \"blue,green\" \"npm.cmd run dev:api\" \"npm.cmd run dev:web\"",
+    "dev:api": "npm.cmd --prefix apps/api run dev",
+    "dev:web": "npm.cmd --prefix apps/web run dev",
+    "build:web": "npm.cmd --prefix apps/web run build",
+    "build:api": "npm.cmd --prefix apps/api run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
